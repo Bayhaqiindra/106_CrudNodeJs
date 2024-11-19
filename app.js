@@ -4,16 +4,57 @@ const app = express();
 require('dotenv').config();
 const port = process.env.PORT;
 
+// Pertemuan 7
+
+const session = require('express-session');
+const authRoutes = require('./routes/authRoutes');
+const { isAuthenticated } = require('./middlewares/middleware.js');
+
+
+const expressLayout = require('express-ejs-layouts');
+
+const db = require('./database/db');
+
+app.use(expressLayout);
+
 app.use(express.json());
 
 app.use('/todos', todoRoutes);
+
+app.use(express.urlencoded({ extended: true }));
+
+// Konfigurasi express-session
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false } // Set ke true jika menggunakan HTTPS
+}));
+
+app.use('/', authRoutes);
+
 app.set('view engine', 'ejs');
-app.get('/', (req, res) => {
-    res.render('index');
+
+app.get('/', isAuthenticated, (req, res) => {
+    res.render('index', {
+        layout: 'layouts/main-layouts.ejs'
+    });
 });
 
-app.get('/contact', (req, res) => {
-    res.render('contact');
+app.get('/contact', isAuthenticated, (req, res) => {
+    res.render('contact', {
+        layout: 'layouts/main-layouts.ejs'
+    });
+});
+
+app.get('/todo-view', isAuthenticated,  (req, res) => {
+    db.query('SELECT * FROM todos', (err, todos) => {
+        if (err) return res.status(500).send('Internal Server Error');
+        res.render('todo', {
+            layout: 'layouts/main-layouts.ejs',
+            todos: todos
+        });
+    });
 });
 
 app.use((req, res) => {
