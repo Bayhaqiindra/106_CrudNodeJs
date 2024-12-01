@@ -1,0 +1,145 @@
+body {
+    background-image: url('../images/background.png'); /* Ganti dengan URL gambar Anda */ /* Memastikan latar belakang memenuhi seluruh tinggi halaman */
+}
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    background-color: #000000;
+}
+
+.todo-card {
+    background-color: #0056b3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.todo-card:hover {
+    transform: scale(1.05);
+}
+
+.btn-edit, .btn-delete {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center; 
+}
+/* Gaya untuk card-body */
+.card-body {
+    display: flex;
+    flex-direction: column; /* Menata elemen utama secara vertikal */
+    align-items: center; /* Memastikan task berada di tengah */
+    gap: 10px; /* Memberikan jarak antar elemen */
+}
+
+/* Tombol Edit dan Delete */
+.card-body .btn {
+    width: 100%; /* Agar tombol memenuhi lebar kartu */
+}
+
+/* Gaya untuk container tombol agar tampil horizontal */
+.card-body .button-container {
+    display: flex;
+    justify-content: space-between; /* Tombol berada di kiri-kanan */
+    width: 100%; /* Menyesuaikan lebar tombol container */
+    gap: 10px; /* Memberikan jarak antar tombol */
+}
+
+/* Untuk tombol */
+.btn-sm {
+    width: 48%; /* Agar tombol tidak penuh, memberi ruang antar tombol */
+}
+
+.btn-edit:hover, .btn-delete:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #0056b3;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #dc3545;
+}
+
+
+
+.btn-primary {
+    min-width: 150px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Gaya untuk header pada todo-card */
+.card-header {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px 8px 0 0; /* Membuat sudut atas melengkung */
+    text-align: center;
+}
+
+.todo-title {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+button[data-bs-toggle="modal"] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 30px; /* Memberikan jarak dengan card */
+}
+
+.footer {
+    padding: 10px;
+    background-color: #333;
+    text-align: center;
+    font-size: 14px;
+    color: white
+}

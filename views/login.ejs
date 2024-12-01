@@ -1,13 +1,55 @@
-<h1>Login</h1>
-<form action="/login" method="POST">
-    <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  
+  <!-- Link eksternal untuk mengambil font dari Google Fonts -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0"
+  />
+
+  <!-- Link eksternal untuk mengambil file CSS dari folder public -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <!-- Container untuk elemen-elemen login -->
+  <div class="login">
+    <!-- Container Gambar -->
+    <div class="avatar">
+      <img src="/images/halo.jpeg" alt="Avatar Image"/>
     </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
-<p>Belum punya akun? <a href="/signup">Daftar di sini</a>.</p>
+
+    <!-- Judul halaman login -->
+    <h2>Login</h2>
+    <!-- Subjudul selamat datang -->
+    <h3>Selamat Datang Sobat!</h3>
+
+    <!-- Formulir untuk login -->
+    <form action="/login" method="POST" class="login-form">
+      <!-- Kotak input untuk email -->
+      <div class="textbox">
+        <input type="text" placeholder="Username" name="username" required />
+        <!-- Icon untuk email -->
+        <span class="material-symbols-outlined">person</span>
+      </div>
+
+      <!-- Kotak input untuk password -->
+      <div class="textbox">
+        <input type="password" placeholder="Password" name="password" required />
+        <!-- Icon untuk password -->
+        <span class="material-symbols-outlined">lock</span>
+      </div>
+
+      <!-- Tombol submit login -->
+      <input class="btn" type="submit" value="Login" />
+    </form>
+
+    <p>Belum punya akun? <a href="/signup">Daftar di sini</a>.</p>
+</body>
+
+</html>
